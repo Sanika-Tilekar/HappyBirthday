@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Declaration for My Queen</title>
+    <style>
+        body {
+            text-align: center;
+            /* background: linear-gradient(to bottom, #fbc2eb, #a6c1ee); */
+            font-family: Arial, sans-serif;
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #fde2e4
+        }
+        .heart {
+            position: absolute;
+            background: red;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transform: rotate(-45deg);
+        }
+        .heart::before,
+        .heart::after {
+            content: "";
+            width: 50px;
+            height: 50px;
+            background: red;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .heart::before {
+            top: -25px;
+            left: 0;
+        }
+        .heart::after {
+            left: 25px;
+            top: 0;
+        }
+        .message {
+            display: none;
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            position: absolute;
+            width: 150px;
+            height: 80px;
+            text-align: center;
+            font-size: 12px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        #sealButton {
+            background: #e63946;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 20px;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <h1>Click each heart, Sir jii🥰</h1>
+    
+    
+    <script>
+        const messages = [
+            "Lucky to have you by my side❤.",
+            "Love u sooooo much babe💋🫂.",
+            "You will always be my favourite destination🫶🏻.",
+            "I'm crazy about you!🙈"
+        ];
+        
+        messages.forEach((msg, index) => {
+            let heart = document.createElement("div");
+            heart.className = "heart";
+            heart.style.top = Math.random() * 80 + "vh";
+            heart.style.left = Math.random() * 80 + "vw";
+            heart.onclick = function() {
+                showMessage(index, heart);
+            };
+            document.body.appendChild(heart);
+            
+            let message = document.createElement("div");
+            message.className = "message";
+            message.id = "msg" + index;
+            message.innerText = msg;
+            document.body.appendChild(message);
+        });
+        
+        function showMessage(index, heartElement) {
+            let message = document.getElementById("msg" + index);
+            message.style.display = "block";
+            message.style.top = heartElement.style.top;
+            message.style.left = heartElement.style.left;
+            heartElement.remove();
+        }
+        
+        function sealWithKiss() {
+            alert("A loving kiss sent your way!");
+        }
+    </script>
+</body>
+</html>
