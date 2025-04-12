@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            text-align: center;
+            /* background: url('background.jpg') no-repeat center center/cover; */
+            background-color: #fde2e4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding-top: 50px;
+        }
+        h1 {
+            font-size: 42px;
+            margin-bottom: 5px;
+            color: #e63946;
+        }
+        h3 {
+            font-size: 20px;
+            font-style: italic;
+            margin-bottom: 40px;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1000px;
+            height: 400px;
+        }
+        .carousel {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            transform-style: preserve-3d;
+            animation: rotate 10s infinite linear;
+        }
+        .carousel img {
+            width: 200px;
+            height: 250px;
+            border-radius: 15px;
+            border: 10px solid rgb(164, 153, 95);
+            position: absolute;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 1s;
+        }
+        button {
+            display: inline-block;
+            background:#e63946;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 25px;
+            margin-top: 50px;
+            text-decoration: none;
+            border: 2px solid #e63946;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background:#e63946;
+            /* color: rgb(124, 56, 67); */
+            transform: translateY(-3px);
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3);
+        }
+        @keyframes rotate {
+            from {
+                transform: rotateY(0deg);
+            }
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>We are the perfect picture❤</h1>
+        <h3></h3>
+        <div class="gallery">
+            <div class="carousel" id="carousel">
+                <img src="image1.jpeg" alt="Memory 1">
+                <img src="image4.jpeg" alt="Memory 2">
+                <img src="image5.jpeg" alt="Memory 3">
+                <img src="image2.jpeg" alt="Memory 4">
+                <img src="image6.jpeg" alt="Memory 5">
+                <img src="image3.jpeg" alt="Memory 6">
+            </div>
+        </div>
+        <a href="letter.html"><button type="button">Next Surprise🎁</button></a>
+        <!-- <button class="button" onclick="nextSurprise()">Continue to the Next Surprise</button> -->
+    </div>
+    <script>
+        function nextSurprise() {
+            alert("Get ready for the next surprise! 🎉");
+        }
+
+        function arrangeImages() {
+            const images = document.querySelectorAll('.carousel img');
+            const totalImages = images.length;
+            const radius = 200;
+            images.forEach((img, index) => {
+                let angle = (index / totalImages) * (2 * Math.PI);
+                let x = Math.cos(angle) * radius;
+                let z = Math.sin(angle) * radius;
+                img.style.transform = translate3d(${x}px, 0, ${z}px) rotateY(${angle}rad);
+            });
+        }
+        
+        arrangeImages();
+    </script>
+</body>
+</html>
