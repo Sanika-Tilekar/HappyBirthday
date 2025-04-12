@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Friend Appreciation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #fde2e4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #e63946;
+        }
+        .reason-box {
+            font-size: 18px;
+            background: #ffe3e3;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        button {
+            background: #ff7b7b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #e63946;
+            transform: translateY(-3px);
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Why You're My Fav?💖</h1>
+        <div class="reason-box" id="first-reason">🌸 You always know how to make me laugh, even on my worst days! 😊</div>
+        <div id="additional-reasons"></div>
+        <button onclick="showAnotherReason()" id="reason-button">Tell Me Another Reason 💕</button>
+    </div>
+
+    <script>
+        const reasons = [
+            "😍Being with u feels so natural & comfort,like we are made for each other 🙈💕",
+            "💛 Kitna chillata hy mere upar isliyee, hehehe 💕",
+            "✨ You're the best person to share secrets with! 🥰"
+        ];
+        let displayedReasons = 0;
+
+        function showAnotherReason() {
+            const additionalReasons = document.getElementById("additional-reasons");
+            if (displayedReasons < reasons.length) {
+                const newReason = document.createElement("div");
+                newReason.classList.add("reason-box");
+                newReason.innerHTML = reasons[displayedReasons];
+                additionalReasons.appendChild(newReason);
+                displayedReasons++;
+            }
+            if (displayedReasons === reasons.length) {
+                document.getElementById("reason-button").innerText = "One More Surprise🎁";
+                document.getElementById("reason-button").setAttribute("onclick", "goToNextPage()");
+            }
+        }
+
+        function goToNextPage() {
+            window.location.href = "gallery.html"; // Change this to your actual next page URL
+        }
+    </script>
+</body>
+</html>
