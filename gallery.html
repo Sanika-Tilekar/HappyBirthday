@@ -102,16 +102,18 @@
         }
 
         function arrangeImages() {
-            const images = document.querySelectorAll('.carousel img');
-            const totalImages = images.length;
-            const radius = 200;
-            images.forEach((img, index) => {
-                let angle = (index / totalImages) * (2 * Math.PI);
-                let x = Math.cos(angle) * radius;
-                let z = Math.sin(angle) * radius;
-                img.style.transform = translate3d(${x}px, 0, ${z}px) rotateY(${angle}rad);
-            });
-        }
+    const images = document.querySelectorAll('.carousel img');
+    const totalImages = images.length;
+    const radius = 400; // You can adjust this for spacing
+
+    images.forEach((img, index) => {
+        let angle = (index / totalImages) * (2 * Math.PI);
+        let x = Math.cos(angle) * radius;
+        let z = Math.sin(angle) * radius;
+        img.style.transform = `translate3d(${x}px, 0, ${z}px) rotateY(${angle}rad)`;
+    });
+}
+
         
         arrangeImages();
     </script>
